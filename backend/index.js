@@ -12,4 +12,9 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/notes', require('./routes/notes'));
 
-module.exports = app; // ⬅️ export app instead of listening
+// Start the server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`iNotebook backend listening on port ${PORT}`);
+    console.log(`Server running at http://localhost:${PORT}`);
+});
